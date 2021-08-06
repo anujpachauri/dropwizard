@@ -1,0 +1,39 @@
+database:
+  driverClass: org.h2.Driver
+  user: sa
+  password:
+  url: jdbc:h2:~/sample
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 1s
+  validationQuery: "SELECT 1"
+  validationQueryTimeout: 3s
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  evictionInterval: 10s
+  minIdleTime: 1 minute 
+  
+swagger:
+    basePath: /dropwizard
+    resourcePackage: dropwizard.resource
+    scan: true
+    info:
+       version: "1.0.0"
+       title: "Dropwizard microservice"
+  
+rateLimiterConfiguration:
+   groupLimits:
+     groups: 15
+   namedLimits:
+     client1.ratelimit: 5
+     
+logging:
+  level: INFO
+   
+  appenders:
+    - type: console
+      threshold: ALL
+      timeZone: IST
+studentCacheKey: student
+    
